@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dzq.study.framework</groupId>
+    <artifactId>framework-parent-project</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>study-framework-redis</module>
+        <module>study-framework-core</module>
+        <module>study-framework-db</module>
+        <module>study-framework-common</module>
+        <module>study-framework-mq</module>
+        <module>study-framework-dao</module>
+        <module>study-framework-service</module>
+        <module>study-framework-controller</module>
+        <module>study-framework-job</module>
+        <module>study-framework-bean</module>
+        <module>study-framework-web</module>
+    </modules>
+    <properties>
+        <study-framework.version>1.0-SNAPSHOT</study-framework.version>
+        <admin.client.version>2.1.6</admin.client.version>
+        <spring.boot.version>2.1.6</spring.boot.version>
+        <druid.version>1.0.26</druid.version>
+        <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${admin.client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.SR2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+                <profiles.group>DEV_GROUP</profiles.group>
+                <virtual.directory>nacos-dev</virtual.directory>
+                <log4jLevel>DEBUG</log4jLevel>
+            </properties>
+            <!--默认为开发环境-->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+                <profiles.group>TEST_GROUP</profiles.group>
+                <virtual.directory>nacos-test</virtual.directory>
+                <log4jLevel>INFO</log4jLevel>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+                <profiles.group>PROD_GROUP</profiles.group>
+                <virtual.directory>nacos-prod</virtual.directory>
+                <log4jLevel>INFO</log4jLevel>
+            </properties>
+            <!--上传jar 包地址-->
+<!--            <repositories>-->
+<!--                <repository>-->
+<!--                    <id>prod</id>-->
+<!--                    <url>http://10.64.39.162:9009/repository/maven-releases/</url>-->
+<!--                    <releases>-->
+<!--                        <enabled>true</enabled>-->
+<!--                        <updatePolicy>always</updatePolicy>-->
+<!--                        <checksumPolicy>warn</checksumPolicy>-->
+<!--                    </releases>-->
+<!--                    <snapshots>-->
+<!--                        <enabled>true</enabled>-->
+<!--                    </snapshots>-->
+<!--                </repository>-->
+<!--            </repositories>-->
+        </profile>
+    </profiles>
+
+</project>

@@ -1,0 +1,13 @@
+/study-framework-bean/study-framework-bean.iml
+/study-framework-common/study-framework-common.iml
+/*/target/
+/study-framework-controller/study-framework-controller.iml
+/study-framework-core/study-framework-core.iml
+/study-framework-dao/study-framework-dao.iml
+/study-framework-db/study-framework-db.iml
+/study-framework-job/study-framework-job.iml
+/study-framework-mq/study-framework-mq.iml
+/study-framework-redis/study-framework-redis.iml
+/study-framework-service/study-framework-service.iml
+/framework-parent-project.iml
+/.idea/
