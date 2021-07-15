@@ -50,6 +50,12 @@ spring:
 #      use-global-data-source-stat: true
       # 通过connectProperties属性来打开mergeSql(Sql合并)功能；慢SQL记录(配置超过5秒就是慢，默认是3秒)
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  boot:
+    admin:
+      ui:
+        title: SpringBootAdmin-Server
+      client:
+        url: http://localhost:8088
 #      web-stat-filter:
 #        enabled: true
 #        url-pattern: "/*"
@@ -64,4 +70,11 @@ spring:
 #        login-password: root
 #        allow: 127.0.0.1
 #        reset-enable: true
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

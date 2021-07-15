@@ -8,8 +8,11 @@ package com.dzq.study.web;
  */
 
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ServiceLoader;
 
 /**
  * @describe：
@@ -18,6 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 2021/3/20 17:16  
  */
 @SpringBootApplication(scanBasePackages = "com.dzq.study")
+@EnableAdminServer
 public class FrameworkApplication {
 
     public static void main(String[] args) {
