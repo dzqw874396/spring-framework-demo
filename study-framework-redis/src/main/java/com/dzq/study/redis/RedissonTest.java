@@ -34,5 +34,6 @@ public class RedissonTest {
     public static void main(String[] args) {
         RLock lock = redisson.getLock("anyLock");
         lock.lock();
+
     }
 }

@@ -21,6 +21,7 @@
         <module>study-framework-bean</module>
         <module>study-framework-web</module>
         <module>study-framework-file</module>
+        <module>study-framework-juc</module>
     </modules>
     <properties>
         <study-framework.version>1.0-SNAPSHOT</study-framework.version>
